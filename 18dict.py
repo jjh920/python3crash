@@ -127,7 +127,7 @@ print(f'''
 
 
 
-# # 수학시험 프로그램
+# 회원가입 프로그램
 users = {}
 while True:
     menu = input('1. 회원가입 2. 프로그램 종료')
@@ -148,7 +148,7 @@ else:
 
 
 
-#2
+# 회원가입 프로그램 V2
 users = {'response': {'body': {'totalCount': 999, 'items': []}}}
 
 print(users['response']['body']['items']
@@ -184,40 +184,8 @@ while True:
     else:
         print('잘못 입력하셨습니다!!')
 
+print(users)
 
 
-
-users = {'response': {'body': {'totalCount': 999, 'items': []}}}
-
-
-print(users['response']['body']['totalCount'])
-print(users['response']['body']['items'])
-
-print(users['response']['body']['items']
-      .append({'uid': 'abc', 'pwd': '123'}))
-print(users['response']['body']['items']
-      .append({'uid': 'xyz', 'pwd': '987'}))
-
-while True:
-    menu = input('1. 회원가입 2. 프로그램 종료')
-
-    if menu == '1':
-        userid = input('아이디를 입력하세요.')
-        passwd = input('비밀번호를 입력하세요.')
-        user = {}
-        user['userid'] = userid
-        user['passwd'] = passwd
-        users['response']['body']['items'].append(user)
-    elif menu == '2':
-        print('-------------------------')
-        print('아이디 : 비밀번호')
-        print('-------------------------')
-        for item in users['response']['body']['items']:
-            for k in item.keys():
-                print(f'{k} : {item[k]}')
-        print('-------------------------')
-        break
-    else:
-        print('잘못 입력하셨습니다!!')
 
 

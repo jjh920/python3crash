@@ -27,6 +27,53 @@ elif cardnum == '540926': cardname = '마스타카드 국민은행'
 
 print(f'{cardnum} {cardname}')
 
+cardnum = input('카드번호는? ')
+
+if cardnum[:2] == '35':
+    if cardnum == '356317': cardname = 'NH농협카드'
+    elif cardnum == '356901': cardname = '신한카드'
+    elif cardnum == '356912': cardname = 'KB국민카드'
+elif cardnum[:1] == '4':
+    if cardnum == '404825': cardname = '비자카드 비씨카드'
+    elif cardnum == '438676': cardname = '비자카드 신한카드'
+    elif cardnum == '457973': cardname = '비자카드 국민은행'
+elif cardnum[:1] == '5':
+    if cardnum == '515594': cardname = '마스타카드 신한카드'
+    elif cardnum == '524353': cardname = '마스타카드 외환카드'
+    elif cardnum == '540926': cardname = '마스타카드 국민은행'
+
+print(f'{cardnum} {cardname}')
+
+# 리스트 합치기 : extend, +
+a = [1, 2, 3]
+b = [4, 5, 6]
+c = ['7', '8', '9']
+
+a.extend(b) # a = a + b
+print(a)
+
+b.extend(c)
+print(b)
+
+# 리스트의 특정 요소 존재 파악
+todo = ['cleaning', 'shoping', 'study', 'exercise', 'game']
+print('drive' in todo)
+print('shoping' in todo)
+print('drive' not in todo)
+
+# 리스트의 모든 요소 존재 순회
+for item in todo:
+    print(item, end='  ')
+
+# 리스트의 모든 요소 존재 순회 : enumerate
+for idx, item in enumerate(todo):
+    print(idx, item)
+
+# 리스트의 모든 요소 제거 : clear
+print(todo)
+todo.clear()
+print(todo)
+
 
 # 35 시간때를 의미하는 영어단어
 daytime = input('시간때는?')
