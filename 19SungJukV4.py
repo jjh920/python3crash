@@ -230,9 +230,9 @@ while True:
         sj['tot'] = (sj['kor'] + sj['eng'] + sj['mat'])
         sj['avg'] = (sj['tot'] / 3)
         sj['grd'] = '수' if sj['avg'] >= 90 else \
-        '우' if sj['grd'] >= 80 else \
-        '미' if sj['grd'] >= 70 else \
-        '양' if sj['grd'] >= 69 else '가'
+        '우' if sj['avg'] >= 80 else \
+        '미' if sj['avg'] >= 70 else \
+        '양' if sj['avg'] >= 69 else '가'
 
         sungjuks['response']['body']['items'].append(sj)
 
