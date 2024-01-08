@@ -11,7 +11,7 @@ email = input('이메일은? ')
 
 # 디비 연결 객체 생성
 conn = sqlite3.connect('db/bigdata.db')
-curser = conn.cursor()
+cursor = conn.cursor()
 
 # sql 작성 - 아래방식은 비추 - SQL injection 공격 위험 존재!
 # sql = ' insert into member values ' \
@@ -25,11 +25,11 @@ sql = ' insert into member values (?,?,?,?) '
 params = (userid, passwd, name, email)
 
 # placeholder, params를 이용해서 sql 실행
-curser.execute(sql, params)
+cursor.execute(sql, params)
 conn.commit()       # 테이블에 값을 저장하기 위해 반드시 commit 호출!
-print(curser.rowcount, '행이 추가됨!')
+print(cursor.rowcount, '행이 추가됨!')
 
-curser.close()
+cursor.close()
 conn.close()
 
 # 파이썬으로 sqlite 다루기 3 - update
@@ -42,7 +42,7 @@ email = input('수정할 이메일은? ')
 
 # 디비 연결 객체 생성
 conn = sqlite3.connect('db/bigdata.db')
-curser = conn.cursor()
+cursor = conn.cursor()
 
 # 매개변수 named parameter placeholder (:이름)를 이용해서 실제 값 지정
 sql = ' update member set passwd = :pwd, name = :name, '\
@@ -52,11 +52,11 @@ sql = ' update member set passwd = :pwd, name = :name, '\
 params = {'uid':userid, 'pwd':passwd, 'name':name, 'email':email}
 
 # placeholder, params를 이용해서 sql 실행
-curser.execute(sql, params)
+cursor.execute(sql, params)
 conn.commit()       # 테이블에 값을 수정하기 위해 반드시 commit 호출!
-print(curser.rowcount, '행이 수정됨!')
+print(cursor.rowcount, '행이 수정됨!')
 
-curser.close()
+cursor.close()
 conn.close()
 
 # 파이썬으로 sqlite 다루기 4 - delete
@@ -64,15 +64,15 @@ conn.close()
 userid = input('삭제할 아이디는? ')
 
 conn = sqlite3.connect('db/bigdata.db')
-curser = conn.cursor()
+cursor = conn.cursor()
 
 sql = ' delete from member where userid = ? '
 
 params = (userid, )
 
-curser.execute(sql, params)
+cursor.execute(sql, params)
 conn.commit()
-print(curser.rowcount, '행이 삭제됨!')
+print(cursor.rowcount, '행이 삭제됨!')
 
-curser.close()
+cursor.close()
 conn.close()
