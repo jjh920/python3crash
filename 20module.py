@@ -155,7 +155,7 @@ menu = ['라면', '짜장', '돈까스', '카레', '해장국']
 for _ in range(5):
     print(random.choice(menu))
 
-비복원 추출
+# 비복원 추출
 for _ in range(3):
     item = random.choice(menu)
     print(item, end=' ')
