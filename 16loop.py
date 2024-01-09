@@ -96,7 +96,7 @@ sum = 0
 
 while i <= 100:
     if i % 3 == 0 or i % 7 == 0: continue
-        print(sum)
+    print(sum)
     sum = sum + i
     i = i + 1
 
