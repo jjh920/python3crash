@@ -51,7 +51,7 @@ def new_book():
     """
     bk = input_book()
     rowcnt = BookDAO.insert_book(bk)
-    print(f'{rowcnt} 건의 도서데이터 등록됨!!')
+    print(f'{rowcnt} 건의 도서데이터 등록됨!!!')
 
 
 # 모든 도서 데이터 출력 (번호/도서명/저자/출판사/판매가)

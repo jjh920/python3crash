@@ -34,13 +34,13 @@ class BookDAO:
         return rows
 
     @staticmethod
-    def selectone_book(self):
+    def selectone_book():
         pass
 
     @staticmethod
-    def update_book(self):
+    def update_book():
         pass
 
     @staticmethod
-    def delete_book(self):
+    def delete_book():
         pass
