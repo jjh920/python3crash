@@ -6,7 +6,7 @@ selectsql = 'select bkno, bkname, author, publisher, price from book'
 selectonesql = 'select * from book where bkname = %s'
 updatesql = 'update book set bkname = %s, author = %s, publisher = %s, ' \
             'pubdate = %s, retail = %s, pctoff = %s'
-deletesql = 'delete from book where bkno = ?'
+deletesql = 'delete from book where bkno = %s'
 
 class BookDAO:
     @staticmethod
@@ -48,5 +48,12 @@ class BookDAO:
         pass
 
     @staticmethod
-    def delete_book():
-        pass
+    def delete_book(bkno):
+        cursor, conn = dbinfo.openConn()
+
+        cursor.execute(deletesql, [bkno])
+        conn.commit()
+        rowcnt = cursor.rowcount
+
+        dbinfo.closeConn(cursor, conn)
+        return rowcnt
