@@ -38,7 +38,7 @@ def input_book():
     pctoff = int(input('도서 할인율은 ?'))
 
     bk = Book(bkname, auther, publisher, pubdate, retail, pctoff)
-    bk.price = bk.retail - (1 - (bk.pctoff / 100))
+    bk.price = bk.retail * (1 - (bk.pctoff / 100))
     bk.mileage = bk.retail * (bk.pctoff / 100)
 
     return bk
@@ -50,7 +50,6 @@ def new_book():
     :return:
     """
     bk = input_book()
-    print(bk)
     rowcnt = BookDAO.insert_book(bk)
     print(f'{rowcnt} 건의 도서데이터 등록됨!!')
 
@@ -62,7 +61,13 @@ def read_book():
     :return:
     """
     print('도서데이터 조회')
-    pass
+    rows = BookDAO.select_book()
+    result = ''
+    rows = BookDAO.select_book()
+    for row in rows:
+        result += f'{row[0]} {row[1]} {row[2]} {row[3]} {row[4]:,}\n'
+
+    print(result)
 
 
 # 도서 데이터 상세조회
