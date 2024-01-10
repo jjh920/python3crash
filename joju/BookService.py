@@ -2,6 +2,12 @@ import sys
 from joju.BookDAO import BookDAO
 from joju.Book import Book
 
+# 클래스의 메서드 접근제한자
+# public : 어느 클래스든지 모두 접근 가능
+# protected : 상속관계에 있는 클래스만 접근 가능(파이썬 지원 X)
+# default : 같은 패키지내 클래스들끼리 접근 가능 (파이썬 지원 X)
+# private : 메서드를 정의한 클래스만 접근 가능 (메서드에 __ 추가)
+
 
 class BookService:
     @staticmethod
@@ -29,7 +35,7 @@ class BookService:
 
     @staticmethod
     # 도서 데이터 추가 (입력-처리-저장)
-    def input_book():
+    def __input_book():
         print('도서데이터 추가')
         bkname = input('도서명은 ?')
         auther = input('도서 저자는 ?')
@@ -50,7 +56,7 @@ class BookService:
         도서 데이터 추가 (입력-처리-저장)
         :return:
         """
-        bk = BookService.input_book()
+        bk = BookService.__input_book()
         rowcnt = BookDAO.insert_book(bk)
         print(f'{rowcnt} 건의 도서데이터 등록됨!!!')
 
@@ -87,7 +93,7 @@ class BookService:
             print('데이터가 없습니다!')
 
     @staticmethod
-    def reinput_book(obk):
+    def __reinput_book(obk):
         bkname = input(f'도서명은? ({obk[1]})')
         auther = input(f'도서 저자는? ({obk[2]})')
         publisher = input(f'도서 출판사는? ({obk[3]})')
@@ -114,7 +120,7 @@ class BookService:
         row = BookDAO.selectone_book(bkname)
 
         if row:
-            bk = BookService.reinput_book(row)
+            bk = BookService.__reinput_book(row)
             rowcnt = BookDAO.update_book(bk)
             print(f'{rowcnt} 건의 도서데이터 수정됨!!')
         else:
