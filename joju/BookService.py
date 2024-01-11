@@ -160,7 +160,6 @@ class BookService:
             print('예외종류 :', exc_type.__name__)
             print('예외위치 :', fname, exc_tb.tb_lineno)
 
-
     @staticmethod
     # 도서 데이터 삭제
     def remove_book():
